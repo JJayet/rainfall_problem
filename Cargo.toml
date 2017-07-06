@@ -1,0 +1,6 @@
+[package]
+name = "rainfall_problem"
+version = "0.1.0"
+authors = ["Jonathan Jayet <jonathan@artus.io>"]
+
+[dependencies]
