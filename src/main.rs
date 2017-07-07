@@ -30,10 +30,10 @@ fn main() {
         //println!("Stored rain in better solution : {}", better_solution.compute());
         assert!(337 == better_solution.compute())
     });
-   
-    let mut betterer_solution = BettererSolution::new(vec);
+
+    let mut betterer_solution = BettererSolution::new(vec.clone());
     timeit!({
         //println!("Stored rain in betterer solution : {}", betterer_solution.compute());
         assert!(337 == betterer_solution.compute())
-    });
+    });   
 }
