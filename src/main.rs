@@ -20,20 +20,39 @@ fn main() {
         vec : vec.clone()
     };
 
-    timeit!({
-        //println!("Stored rain in naive solution : {}", naive_solution.compute());
+    let number_of_loops = 100000;
+
+    let print_result = |sec : f64, solution : &str| {
+        let (mult, unit_str) = if sec > 1.0 {
+            (1.0, "s")
+        } else if sec > 0.001 {
+            (0.001, "ms")
+        } else if sec > 0.000_001 {
+            (0.000_001, "µs")
+        } else {
+            (0.000_000_001, "ns")
+        };
+
+        println!("{} loops of {} solution : {} {}", number_of_loops, solution, sec / mult, unit_str);
+    };
+
+    let time = timeit_loops!(number_of_loops, {
         assert!(337 == naive_solution.compute())
     });
 
+    print_result(time, "naive");
+
     let mut better_solution = BetterSolution::new(vec.clone());
-    timeit!({
-        //println!("Stored rain in better solution : {}", better_solution.compute());
+    let time = timeit_loops!(number_of_loops, {
         assert!(337 == better_solution.compute())
     });
 
+    print_result(time, "better");
+
     let mut betterer_solution = BettererSolution::new(vec.clone());
-    timeit!({
-        //println!("Stored rain in betterer solution : {}", betterer_solution.compute());
+    let time = timeit_loops!(number_of_loops, {
         assert!(337 == betterer_solution.compute())
     });   
+
+    print_result(time, "betterer");
 }
