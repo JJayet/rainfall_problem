@@ -5,9 +5,9 @@ mod naive_solution;
 mod better_solution;
 mod betterer_solution;
 
-use naive_solution::naive_solution::NaiveSolution;
-use better_solution::better_solution::BetterSolution;
-use betterer_solution::betterer_solution::BettererSolution;
+use naive_solution::NaiveSolution;
+use better_solution::BetterSolution;
+use betterer_solution::BettererSolution;
 
 fn main() {
     println!("This is the rainfall problem");
