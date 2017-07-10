@@ -5,6 +5,10 @@ pub struct NaiveSolution {
 }
 
 impl NaiveSolution {
+    pub fn new(vec: Vec<i32>) -> NaiveSolution {
+        NaiveSolution { vec: vec }
+    }
+
     fn get_left_highest_point(&self, current_index: usize) -> i32 {
         let mut current_highest_point = self.vec[0];
 

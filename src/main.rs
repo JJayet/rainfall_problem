@@ -16,10 +16,10 @@ fn main() {
     let vec = vec![4, 5, 3, 2, 3, 6, 3, 2, 4, 3, 5, 324, 3, 320];
     println!("{:?}", vec);
 
-    let naive_solution = NaiveSolution {
-        vec : vec.clone()
-    };
-
+    let naive_solution = NaiveSolution::new(vec.clone());
+    let mut better_solution = BetterSolution::new(vec.clone());
+    let mut betterer_solution = BettererSolution::new(vec.clone());
+    
     let number_of_loops = 100000;
 
     let print_result = |sec : f64, solution : &str| {
@@ -33,7 +33,7 @@ fn main() {
             (0.000_000_001, "ns")
         };
 
-        println!("{} loops of {} solution : {} {}", number_of_loops, solution, sec / mult, unit_str);
+        println!("{} loops of {} solution : {} {}", number_of_loops, solution, sec / mult, unit_str)
     };
 
     let time = timeit_loops!(number_of_loops, {
@@ -42,14 +42,12 @@ fn main() {
 
     print_result(time, "naive");
 
-    let mut better_solution = BetterSolution::new(vec.clone());
     let time = timeit_loops!(number_of_loops, {
         assert!(337 == better_solution.compute())
     });
 
     print_result(time, "better");
 
-    let mut betterer_solution = BettererSolution::new(vec.clone());
     let time = timeit_loops!(number_of_loops, {
         assert!(337 == betterer_solution.compute())
     });   
