@@ -16,9 +16,9 @@ fn main() {
     let vec = vec![4, 5, 3, 2, 3, 6, 3, 2, 4, 3, 5, 324, 3, 320];
     println!("{:?}", vec);
 
-    let naive_solution = NaiveSolution::new(vec.clone());
-    let mut better_solution = BetterSolution::new(vec.clone());
-    let mut betterer_solution = BettererSolution::new(vec.clone());
+    let naive_solution = NaiveSolution::new(&vec);
+    let mut better_solution = BetterSolution::new(&vec);
+    let mut betterer_solution = BettererSolution::new(&vec);
     
     let number_of_loops = 100000;
 

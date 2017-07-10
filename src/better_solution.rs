@@ -1,12 +1,12 @@
 // This is O(N) space and O(N) time complexity
 #[derive(Debug)]
-pub struct BetterSolution {
-    vec: Vec<i32>,
+pub struct BetterSolution<'a> {
+    vec: &'a Vec<i32>,
     left_vec: Vec<i32>,
     right_vec: Vec<i32>,
 }
 
-impl BetterSolution {
+impl<'a> BetterSolution<'a> {
     fn calculate_left_highest_points(&mut self) {
         let mut current_highest_point = 0;
         for (i, &item) in self.vec.iter().enumerate() {
@@ -50,7 +50,7 @@ impl BetterSolution {
         total_stored_rain
     }
 
-    pub fn new(vec: Vec<i32>) -> BetterSolution {
+    pub fn new(vec: &'a Vec<i32>) -> BetterSolution {
         let length = vec.capacity();
         let mut bs = BetterSolution {
             vec: vec,

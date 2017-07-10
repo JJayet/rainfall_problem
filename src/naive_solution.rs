@@ -1,11 +1,11 @@
 // This is O(1) space and O(N^2) time complexity
 #[derive(Debug)]
-pub struct NaiveSolution {
-    pub vec: Vec<i32>,
+pub struct NaiveSolution<'a> {
+    pub vec: &'a Vec<i32>,
 }
 
-impl NaiveSolution {
-    pub fn new(vec: Vec<i32>) -> NaiveSolution {
+impl<'a> NaiveSolution<'a> {
+    pub fn new(vec: &'a Vec<i32>) -> NaiveSolution {
         NaiveSolution { vec: vec }
     }
 
